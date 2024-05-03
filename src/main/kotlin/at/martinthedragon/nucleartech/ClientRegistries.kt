@@ -6,6 +6,7 @@ import at.martinthedragon.nucleartech.block.entity.BlockEntityTypes
 import at.martinthedragon.nucleartech.block.entity.renderer.*
 import at.martinthedragon.nucleartech.block.entity.renderer.rbmk.*
 import at.martinthedragon.nucleartech.block.entity.renderer.reactor.ReactorMk0Renderer
+import at.martinthedragon.nucleartech.block.entity.renderer.reactor.ReactorMk1Renderer
 import at.martinthedragon.nucleartech.block.entity.renderer.reactor.ReactorMk2Renderer
 import at.martinthedragon.nucleartech.entity.EntityTypes
 import at.martinthedragon.nucleartech.entity.renderer.*
@@ -23,6 +24,7 @@ import at.martinthedragon.nucleartech.rendering.SpecialModels
 import at.martinthedragon.nucleartech.screen.*
 import at.martinthedragon.nucleartech.screen.rbmk.*
 import at.martinthedragon.nucleartech.screen.reactor.ReactorMk0Screen
+import at.martinthedragon.nucleartech.screen.reactor.ReactorMk1Screen
 import at.martinthedragon.nucleartech.screen.reactor.ReactorMk2Screen
 import net.minecraft.ChatFormatting
 import net.minecraft.client.Minecraft
@@ -72,6 +74,7 @@ object ClientRegistries {
         MenuScreens.register(MenuTypes.littleBoyMenu.get(), ::LittleBoyScreen)
         MenuScreens.register(MenuTypes.oilWellMenu.get(), ::OilWellScreen)
         MenuScreens.register(MenuTypes.reactorMk0Menu.get(), ::ReactorMk0Screen)
+        MenuScreens.register(MenuTypes.reactorMk1Menu.get(), ::ReactorMk1Screen)
         MenuScreens.register(MenuTypes.reactorMk2Menu.get(), ::ReactorMk2Screen)
         MenuScreens.register(MenuTypes.rbmkAutoControlMenu.get(), ::RBMKAutoControlScreen)
         MenuScreens.register(MenuTypes.rbmkBoilerMenu.get(), ::RBMKBoilerScreen)
@@ -152,6 +155,7 @@ object ClientRegistries {
             registerBlockEntityRenderer(BlockEntityTypes.pumpjackBlockEntityType.get(), ::PumpjackRenderer)
             registerBlockEntityRenderer(BlockEntityTypes.radarBlockEntityType.get(), ::RadarRenderer)
             registerBlockEntityRenderer(BlockEntityTypes.reactorMk0BlockEntityType.get(), ::ReactorMk0Renderer)
+            registerBlockEntityRenderer(BlockEntityTypes.reactorMk1BlockEntityType.get(), ::ReactorMk1Renderer)
             registerBlockEntityRenderer(BlockEntityTypes.reactorMk2BlockEntityType.get(), ::ReactorMk2Renderer)
             registerBlockEntityRenderer(BlockEntityTypes.rbmkAbsorberBlockEntityType.get(), ::RBMKAbsorberRenderer)
             registerBlockEntityRenderer(BlockEntityTypes.rbmkAutoControlBlockEntityType.get(), ::RBMKAutoControlRenderer)

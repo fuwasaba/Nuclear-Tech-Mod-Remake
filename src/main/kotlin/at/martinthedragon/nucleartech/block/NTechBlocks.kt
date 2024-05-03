@@ -5,6 +5,7 @@ import at.martinthedragon.nucleartech.block.multi.MultiBlockPart
 import at.martinthedragon.nucleartech.block.multi.MultiBlockPort
 import at.martinthedragon.nucleartech.block.rbmk.*
 import at.martinthedragon.nucleartech.block.reactors.ReactorMk0Block
+import at.martinthedragon.nucleartech.block.reactors.ReactorMk1Block
 import at.martinthedragon.nucleartech.block.reactors.ReactorMk2Block
 import at.martinthedragon.nucleartech.hazard.HazardRegistry
 import at.martinthedragon.nucleartech.registerK
@@ -213,6 +214,7 @@ object NTechBlocks {
     val centrifuge = BLOCKS.registerK("centrifuge") { CentrifugeBlock(Properties.of(METAL).strength(5F).requiresCorrectToolForDrops().sound(SoundType.METAL).noOcclusion()) }
 
     val reactorMk0 = BLOCKS.registerK("reactor_mk0") { ReactorMk0Block(Properties.of(METAL).strength(5F).requiresCorrectToolForDrops().sound(SoundType.METAL).noOcclusion()) }
+    val reactorMk1 = BLOCKS.registerK("reactor_mk1") { ReactorMk1Block(Properties.of(METAL).strength(5F).requiresCorrectToolForDrops().sound(SoundType.METAL).noOcclusion()) }
     val reactorMk2 = BLOCKS.registerK("reactor_mk2") { ReactorMk2Block(Properties.of(METAL).strength(5F).requiresCorrectToolForDrops().sound(SoundType.METAL).noOcclusion()) }
 
     val ironAnvil = BLOCKS.registerK("iron_anvil") { AnvilBlock(1, Properties.of(METAL).strength(5F, 100F).requiresCorrectToolForDrops().sound(SoundType.ANVIL)) }

@@ -4,6 +4,7 @@ import at.martinthedragon.nucleartech.RegistriesAndLifecycle.BLOCK_ENTITIES
 import at.martinthedragon.nucleartech.block.NTechBlocks
 import at.martinthedragon.nucleartech.block.entity.rbmk.*
 import at.martinthedragon.nucleartech.block.entity.reactors.ReactorMk0BlockEntity
+import at.martinthedragon.nucleartech.block.entity.reactors.ReactorMk1BlockEntity
 import at.martinthedragon.nucleartech.block.entity.reactors.ReactorMk2BlockEntity
 import at.martinthedragon.nucleartech.block.entity.transmitters.CableBlockEntity
 import at.martinthedragon.nucleartech.block.entity.transmitters.FluidPipeBlockEntity
@@ -37,6 +38,7 @@ object BlockEntityTypes {
     val radarBlockEntityType = BLOCK_ENTITIES.registerK("radar") { createType(::RadarBlockEntity, NTechBlocks.radar.get()) }
 
     val reactorMk0BlockEntityType = BLOCK_ENTITIES.registerK("reactor_mk0") { createType(::ReactorMk0BlockEntity, NTechBlocks.reactorMk0.get()) }
+    val reactorMk1BlockEntityType = BLOCK_ENTITIES.registerK("reactor_mk1") { createType(::ReactorMk1BlockEntity, NTechBlocks.reactorMk1.get()) }
     val reactorMk2BlockEntityType = BLOCK_ENTITIES.registerK("reactor_mk2") { createType(::ReactorMk2BlockEntity, NTechBlocks.reactorMk2.get()) }
 
     val centrifugeBlockEntityType = BLOCK_ENTITIES.registerK("centrifuge") { createType(::CentrifugeBlockEntity, NTechBlocks.centrifuge.get()) }

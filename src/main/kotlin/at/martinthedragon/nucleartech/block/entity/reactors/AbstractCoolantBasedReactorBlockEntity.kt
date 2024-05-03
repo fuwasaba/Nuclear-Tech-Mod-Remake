@@ -35,7 +35,7 @@ abstract class AbstractCoolantBasedReactorBlockEntity(type: BlockEntityType<*>, 
 
     override fun handleContinuousUpdatePacket(tag: CompoundTag) {
         super.handleContinuousUpdatePacket(tag)
-        coolantTank.getOrNull()!!.forceFluid(FluidStack(NTechFluids.coolant.source.get(), tag.getInt("Coolant")))
+        coolantTank.getOrNull()!!.forceFluid(FluidStack(coolFluid, tag.getInt("Coolant")))
     }
 
     override fun saveAdditional(tag: CompoundTag) {
@@ -45,7 +45,7 @@ abstract class AbstractCoolantBasedReactorBlockEntity(type: BlockEntityType<*>, 
 
     override fun load(tag: CompoundTag) {
         super.load(tag)
-        coolantTank.getOrNull()!!.forceFluid(FluidStack(NTechFluids.coolant.source.get(), tag.getInt("Coolant")))
+        coolantTank.getOrNull()!!.forceFluid(FluidStack(coolFluid, tag.getInt("Coolant")))
     }
 
     override fun serverTick(level: Level, pos: BlockPos, state: BlockState) {
@@ -60,7 +60,7 @@ abstract class AbstractCoolantBasedReactorBlockEntity(type: BlockEntityType<*>, 
     override fun getTanks() = 3
     override fun getFluidInTank(tank: Int): FluidStack = if (tank > 2) FluidStack.EMPTY else if (tank == 1) steamTank.fluid else if(tank == 2) coolantTank.getOrNull()!!.fluid else waterTank.fluid
     override fun getTankCapacity(tank: Int): Int = if (tank > 2) 0 else if (tank == 1) steamTank.capacity else if (tank == 2) coolantTank.getOrNull()!!.capacity else waterTank.capacity
-    override fun isFluidValid(tank: Int, stack: FluidStack) = if (tank == 1) false else if (tank == 2) stack.fluid == NTechFluids.coolant.source else stack.fluid == Fluids.WATER
+    override fun isFluidValid(tank: Int, stack: FluidStack) = if (tank == 1) false else if (tank == 2) stack.fluid == coolFluid else stack.fluid == Fluids.WATER
     override fun fill(resource: FluidStack, action: IFluidHandler.FluidAction) = if (resource.fluid.isSame(Fluids.WATER.source)) waterTank.fill(resource, action)
     else if (resource.fluid.isSame(coolFluid)) coolantTank.getOrNull()!!.fill(resource, action)
     else 0

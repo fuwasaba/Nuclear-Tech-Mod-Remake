@@ -64,6 +64,7 @@ object LangKeys {
     val CONTAINER_PUMPJACK = of(CAT_CONTAINER, "pumpjack")
     val CONTAINER_RADAR = of(CAT_CONTAINER, "radar")
     val CONTAINER_REACTOR_MK0 = of(CAT_CONTAINER, "reactor_mk0")
+    val CONTAINER_REACTOR_MK1 = of(CAT_CONTAINER, "reactor_mk1")
     val CONTAINER_REACTOR_MK2 = of(CAT_CONTAINER, "reactor_mk2")
     val CONTAINER_RBMK_BOILER = of(CAT_CONTAINER, "rbmk_boiler")
     val CONTAINER_RBMK_CONSOLE = of(CAT_CONTAINER, "rbmk_console")

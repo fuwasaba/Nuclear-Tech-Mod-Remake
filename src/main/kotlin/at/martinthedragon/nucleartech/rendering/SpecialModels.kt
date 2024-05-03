@@ -50,6 +50,7 @@ object SpecialModels : ResourceManagerReloadListener {
     val RADAR_DISH = registerModel(modelLoc("radar/radar_dish"), simpleModel())
     val RADAR_BASE = registerModel(modelLoc("radar/radar_base"), simpleModel())
     val REACTOR_MK0 = registerModel(reactorLoc("mk0/test"), simpleModel())
+    val REACTOR_MK1 = registerModel(reactorLoc("mk2/mk2"), simpleModel())
     val REACTOR_MK2 = registerModel(reactorLoc("mk2/mk2"), simpleModel())
     val REACTOR_MK2_ROD = registerModel(reactorLoc("mk2/mk2rod"), simpleModel())
     val RBMK_COMMON_COLUMN = registerBakedModel(modelLoc("rbmk/column"), bakedModel())
