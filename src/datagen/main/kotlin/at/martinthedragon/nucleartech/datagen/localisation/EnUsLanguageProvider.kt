@@ -938,6 +938,7 @@ class EnUsLanguageProvider(dataGenerator: DataGenerator) : NuclearLanguageProvid
         add(LangKeys.CONTAINER_PUMPJACK, "Pumpjack")
         add(LangKeys.CONTAINER_RADAR, "Radar")
         add(LangKeys.CONTAINER_REACTOR_MK0, "Reactor Mk0")
+        add(LangKeys.CONTAINER_REACTOR_MK1, "Reactor Mk1")
         add(LangKeys.CONTAINER_REACTOR_MK2, "Reactor Mk2")
         addMenuType(MenuTypes.centrifugeMenu, "Centrifuge")
         addMenuType(MenuTypes.rbmkRodMenu, "RBMK Fuel Rod")

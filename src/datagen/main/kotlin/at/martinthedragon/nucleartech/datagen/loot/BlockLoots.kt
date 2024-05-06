@@ -264,6 +264,7 @@ class BlockLoots : BlockLoot() {
         dropSelf(NTechBlocks.oilDerrick.get())
         dropSelf(NTechBlocks.pumpjack.get())
         dropSelf(NTechBlocks.reactorMk0.get())
+        dropSelf(NTechBlocks.reactorMk1.get())
         dropSelf(NTechBlocks.reactorMk2.get())
         dropSelf(NTechBlocks.radar.get())
         dropSelf(NTechBlocks.centrifuge.get())
