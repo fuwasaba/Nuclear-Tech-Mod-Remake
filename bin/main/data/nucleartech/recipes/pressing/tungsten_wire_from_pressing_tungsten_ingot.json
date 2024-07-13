@@ -1,0 +1,12 @@
+{
+  "type": "nucleartech:pressing",
+  "ingredient": {
+    "tag": "forge:ingots/tungsten"
+  },
+  "stamp_type": "WIRE",
+  "result": {
+    "item": "nucleartech:tungsten_wire",
+    "count": 8
+  },
+  "experience": 0.2
+}

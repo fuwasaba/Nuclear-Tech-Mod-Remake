@@ -1,0 +1,11 @@
+{
+  "type": "nucleartech:shredding",
+  "ingredient": {
+    "tag": "forge:ingots/dineutronium"
+  },
+  "result": {
+    "item": "nucleartech:dineutronium_powder",
+    "count": 1
+  },
+  "experience": 0.0
+}

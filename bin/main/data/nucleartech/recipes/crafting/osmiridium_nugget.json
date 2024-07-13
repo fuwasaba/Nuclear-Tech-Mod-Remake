@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "osmiridium_nugget",
+  "ingredients": [
+    {
+      "item": "nucleartech:osmiridium_ingot"
+    }
+  ],
+  "result": {
+    "item": "nucleartech:osmiridium_nugget",
+    "count": 9
+  }
+}

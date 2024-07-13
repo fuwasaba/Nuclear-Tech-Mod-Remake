@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "nucleartech:crafting/insulator_from_insulator_roll"
+    ]
+  },
+  "criteria": {
+    "has_insulator_roll": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:storage_blocks/insulator"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "nucleartech:crafting/insulator_from_insulator_roll"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_insulator_roll",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:plates/aluminium",
+    "#forge:plates/combine_steel",
+    "#forge:plates/copper",
+    "#forge:plates/gold",
+    "#forge:plates/insulator",
+    "#forge:plates/iron",
+    "#forge:plates/kevlar",
+    "#forge:plates/lead",
+    "#forge:plates/neutron_reflector",
+    "#forge:plates/saturnite",
+    "#forge:plates/schrabidium",
+    "#forge:plates/steel",
+    "#forge:plates/titanium",
+    "nucleartech:advanced_alloy_plate",
+    "nucleartech:mixed_plate",
+    "nucleartech:paa_alloy_plate",
+    "nucleartech:angry_metal",
+    "nucleartech:desh_compound_plate",
+    "nucleartech:euphemium_compound_plate",
+    "nucleartech:dineutronium_compound_plate"
+  ]
+}

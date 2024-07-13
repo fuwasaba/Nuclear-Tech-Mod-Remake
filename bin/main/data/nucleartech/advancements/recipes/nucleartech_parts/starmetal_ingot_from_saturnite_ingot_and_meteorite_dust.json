@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "nucleartech:blasting/starmetal_ingot_from_saturnite_ingot_and_meteorite_dust"
+    ]
+  },
+  "criteria": {
+    "has_saturnite_ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/saturnite"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "nucleartech:blasting/starmetal_ingot_from_saturnite_ingot_and_meteorite_dust"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_saturnite_ingot",
+      "has_the_recipe"
+    ]
+  ]
+}

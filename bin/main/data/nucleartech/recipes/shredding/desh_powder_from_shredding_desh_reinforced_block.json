@@ -1,0 +1,11 @@
+{
+  "type": "nucleartech:shredding",
+  "ingredient": {
+    "tag": "forge:storage_blocks/desh"
+  },
+  "result": {
+    "item": "nucleartech:desh_powder",
+    "count": 9
+  },
+  "experience": 0.0
+}

@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "nucleartech:hazmat_cloth",
+    "nucleartech:advanced_hazmat_cloth",
+    "nucleartech:lead_reinforced_hazmat_cloth"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "dineutronium_nugget",
+  "ingredients": [
+    {
+      "tag": "forge:ingots/dineutronium"
+    }
+  ],
+  "result": {
+    "item": "nucleartech:dineutronium_nugget",
+    "count": 9
+  }
+}

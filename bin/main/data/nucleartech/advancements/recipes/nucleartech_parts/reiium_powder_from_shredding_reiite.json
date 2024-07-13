@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "nucleartech:shredding/reiium_powder_from_shredding_reiite"
+    ]
+  },
+  "criteria": {
+    "has_reiite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ores/reiium"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "nucleartech:shredding/reiium_powder_from_shredding_reiite"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_reiite",
+      "has_the_recipe"
+    ]
+  ]
+}

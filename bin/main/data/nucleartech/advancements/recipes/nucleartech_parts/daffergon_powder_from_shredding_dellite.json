@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "nucleartech:shredding/daffergon_powder_from_shredding_dellite"
+    ]
+  },
+  "criteria": {
+    "has_dellite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ores/daffergon"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "nucleartech:shredding/daffergon_powder_from_shredding_dellite"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_dellite",
+      "has_the_recipe"
+    ]
+  ]
+}

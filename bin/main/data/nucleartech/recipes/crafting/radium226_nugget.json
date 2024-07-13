@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "radium226_nugget",
+  "ingredients": [
+    {
+      "item": "nucleartech:radium226_ingot"
+    }
+  ],
+  "result": {
+    "item": "nucleartech:radium226_nugget",
+    "count": 9
+  }
+}

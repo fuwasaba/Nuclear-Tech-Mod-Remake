@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "euphemium_ingot",
+  "ingredients": [
+    {
+      "tag": "forge:storage_blocks/euphemium"
+    }
+  ],
+  "result": {
+    "item": "nucleartech:euphemium_ingot",
+    "count": 9
+  }
+}

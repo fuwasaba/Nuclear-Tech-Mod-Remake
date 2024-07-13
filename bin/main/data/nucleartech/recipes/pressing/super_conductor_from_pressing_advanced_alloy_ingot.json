@@ -1,0 +1,12 @@
+{
+  "type": "nucleartech:pressing",
+  "ingredient": {
+    "item": "nucleartech:advanced_alloy_ingot"
+  },
+  "stamp_type": "WIRE",
+  "result": {
+    "item": "nucleartech:super_conductor",
+    "count": 8
+  },
+  "experience": 0.2
+}

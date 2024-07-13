@@ -1,0 +1,12 @@
+{
+  "type": "nucleartech:pressing",
+  "ingredient": {
+    "tag": "forge:ingots/aluminium"
+  },
+  "stamp_type": "WIRE",
+  "result": {
+    "item": "nucleartech:aluminium_wire",
+    "count": 8
+  },
+  "experience": 0.2
+}

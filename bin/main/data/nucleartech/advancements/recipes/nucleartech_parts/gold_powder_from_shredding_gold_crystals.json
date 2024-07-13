@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "nucleartech:shredding/gold_powder_from_shredding_gold_crystals"
+    ]
+  },
+  "criteria": {
+    "has_gold_crystals": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:crystals/gold"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "nucleartech:shredding/gold_powder_from_shredding_gold_crystals"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_gold_crystals",
+      "has_the_recipe"
+    ]
+  ]
+}

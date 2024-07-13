@@ -1,0 +1,11 @@
+{
+  "type": "nucleartech:shredding",
+  "ingredient": {
+    "tag": "forge:storage_blocks/euphemium"
+  },
+  "result": {
+    "item": "nucleartech:euphemium_powder",
+    "count": 9
+  },
+  "experience": 0.0
+}

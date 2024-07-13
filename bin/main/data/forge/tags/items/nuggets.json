@@ -1,0 +1,32 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:nuggets/australium",
+    "#forge:nuggets/beryllium",
+    "#forge:nuggets/bismuth",
+    "#forge:nuggets/daffergon",
+    "#forge:nuggets/desh",
+    "#forge:nuggets/dineutronium",
+    "#forge:nuggets/euphemium",
+    "#forge:nuggets/lead",
+    "#forge:nuggets/mercury",
+    "#forge:nuggets/mox",
+    "#forge:nuggets/neptunium",
+    "#forge:nuggets/plutonium",
+    "#forge:nuggets/plutonium_fuel",
+    "#forge:nuggets/polonium",
+    "#forge:nuggets/reiium",
+    "#forge:nuggets/schrabidium",
+    "#forge:nuggets/schrabidium_fuel",
+    "#forge:nuggets/solinium",
+    "#forge:nuggets/thorium",
+    "#forge:nuggets/thorium_fuel",
+    "#forge:nuggets/unobtainium",
+    "#forge:nuggets/uranium",
+    "#forge:nuggets/uranium_fuel",
+    "#forge:nuggets/verticium",
+    "#forge:nuggets/weidanium",
+    "nucleartech:high_enriched_schrabidium_fuel_nugget",
+    "nucleartech:low_enriched_schrabidium_fuel_nugget"
+  ]
+}

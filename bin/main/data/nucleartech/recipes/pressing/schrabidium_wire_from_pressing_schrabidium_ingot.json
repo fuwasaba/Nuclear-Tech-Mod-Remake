@@ -1,0 +1,12 @@
+{
+  "type": "nucleartech:pressing",
+  "ingredient": {
+    "tag": "forge:ingots/schrabidium"
+  },
+  "stamp_type": "WIRE",
+  "result": {
+    "item": "nucleartech:schrabidium_wire",
+    "count": 8
+  },
+  "experience": 0.2
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "insulator",
+  "ingredients": [
+    {
+      "tag": "forge:storage_blocks/insulator"
+    }
+  ],
+  "result": {
+    "item": "nucleartech:insulator",
+    "count": 9
+  }
+}

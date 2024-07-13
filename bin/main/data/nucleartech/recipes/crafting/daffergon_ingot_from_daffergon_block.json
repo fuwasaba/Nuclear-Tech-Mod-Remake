@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "daffergon_ingot",
+  "ingredients": [
+    {
+      "tag": "forge:storage_blocks/daffergon"
+    }
+  ],
+  "result": {
+    "item": "nucleartech:daffergon_ingot",
+    "count": 9
+  }
+}

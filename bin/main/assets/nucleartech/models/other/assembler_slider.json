@@ -1,0 +1,8 @@
+{
+  "textures": {
+    "texture": "nucleartech:other/assembler/slider"
+  },
+  "loader": "forge:obj",
+  "model": "nucleartech:models/other/assembler/slider.obj",
+  "flip-v": true
+}

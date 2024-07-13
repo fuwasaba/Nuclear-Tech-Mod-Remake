@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "nucleartech:shredding/asbestos_powder_from_shredding_asbestos_sheet"
+    ]
+  },
+  "criteria": {
+    "has_asbestos_sheet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/asbestos"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "nucleartech:shredding/asbestos_powder_from_shredding_asbestos_sheet"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_asbestos_sheet",
+      "has_the_recipe"
+    ]
+  ]
+}

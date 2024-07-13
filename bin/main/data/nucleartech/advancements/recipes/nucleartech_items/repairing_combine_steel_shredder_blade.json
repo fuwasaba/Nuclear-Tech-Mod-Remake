@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "nucleartech:crafting/repairing_combine_steel_shredder_blade"
+    ]
+  },
+  "criteria": {
+    "has_combine_steel_shredder_blade": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nucleartech:combine_steel_shredder_blade"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "nucleartech:crafting/repairing_combine_steel_shredder_blade"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_combine_steel_shredder_blade",
+      "has_the_recipe"
+    ]
+  ]
+}

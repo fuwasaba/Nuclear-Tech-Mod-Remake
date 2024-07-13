@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "nucleartech:crafting/oil_detector"
+    ]
+  },
+  "criteria": {
+    "has_advanced_circuit": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "nucleartech:advanced_circuit"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "nucleartech:crafting/oil_detector"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_advanced_circuit",
+      "has_the_recipe"
+    ]
+  ]
+}

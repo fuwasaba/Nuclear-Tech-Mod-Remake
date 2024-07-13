@@ -1,0 +1,11 @@
+{
+  "type": "nucleartech:shredding",
+  "ingredient": {
+    "tag": "forge:storage_blocks/magnetized_tungsten"
+  },
+  "result": {
+    "item": "nucleartech:magnetized_tungsten_powder",
+    "count": 9
+  },
+  "experience": 0.0
+}

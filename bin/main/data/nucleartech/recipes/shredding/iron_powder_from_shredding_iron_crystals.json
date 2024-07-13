@@ -1,0 +1,11 @@
+{
+  "type": "nucleartech:shredding",
+  "ingredient": {
+    "tag": "forge:crystals/iron"
+  },
+  "result": {
+    "item": "nucleartech:iron_powder",
+    "count": 3
+  },
+  "experience": 0.35
+}

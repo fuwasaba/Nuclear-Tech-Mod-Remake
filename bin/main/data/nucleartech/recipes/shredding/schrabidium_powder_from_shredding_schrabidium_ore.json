@@ -1,0 +1,11 @@
+{
+  "type": "nucleartech:shredding",
+  "ingredient": {
+    "tag": "forge:ores/schrabidium"
+  },
+  "result": {
+    "item": "nucleartech:schrabidium_powder",
+    "count": 2
+  },
+  "experience": 25.0
+}

@@ -1,0 +1,12 @@
+{
+  "type": "nucleartech:pressing",
+  "ingredient": {
+    "tag": "forge:ingots/gold"
+  },
+  "stamp_type": "WIRE",
+  "result": {
+    "item": "nucleartech:gold_wire",
+    "count": 8
+  },
+  "experience": 0.2
+}

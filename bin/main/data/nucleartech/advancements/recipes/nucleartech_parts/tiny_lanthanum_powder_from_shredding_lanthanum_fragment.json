@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "nucleartech:shredding/tiny_lanthanum_powder_from_shredding_lanthanum_fragment"
+    ]
+  },
+  "criteria": {
+    "has_lanthanum_fragment": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:fragments/lanthanum"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "nucleartech:shredding/tiny_lanthanum_powder_from_shredding_lanthanum_fragment"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_lanthanum_fragment",
+      "has_the_recipe"
+    ]
+  ]
+}

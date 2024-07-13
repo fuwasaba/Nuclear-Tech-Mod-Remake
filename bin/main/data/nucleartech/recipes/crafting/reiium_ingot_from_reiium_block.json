@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "reiium_ingot",
+  "ingredients": [
+    {
+      "tag": "forge:storage_blocks/reiium"
+    }
+  ],
+  "result": {
+    "item": "nucleartech:reiium_ingot",
+    "count": 9
+  }
+}

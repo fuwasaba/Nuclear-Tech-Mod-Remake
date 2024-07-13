@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "nucleartech:shredding/red_copper_powder_from_shredding_red_copper_ingot"
+    ]
+  },
+  "criteria": {
+    "has_red_copper_ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/red_copper"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "nucleartech:shredding/red_copper_powder_from_shredding_red_copper_ingot"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_red_copper_ingot",
+      "has_the_recipe"
+    ]
+  ]
+}
