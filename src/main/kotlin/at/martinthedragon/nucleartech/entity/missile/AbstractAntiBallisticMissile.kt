@@ -123,8 +123,8 @@ abstract class AbstractAntiBallisticMissile : AbstractMissile {
         // Targeting missiles - returns normalized vector pointing towards the closest rocket
         val targets = (level as ServerLevel).allEntities.filter {
             it !== this && // Ensure the missile does not target itself
+                it.type != this.type && // Exclude other anti-ballistic missiles
                 position().distanceTo(Vec3(it.x, position().y, it.z)) <= detectRange &&
-                it !is AntiBallisticMissile &&
                 it is AbstractMissile &&
                 !targetedEntities.contains(it)
         }
@@ -147,7 +147,6 @@ abstract class AbstractAntiBallisticMissile : AbstractMissile {
         println("No target found")
         return null
     }
-
 
     private fun explodeIfNearTarget() {
         val listOfMissilesInExplosionRange: List<Entity> = level.getEntities(null, AABB(position().x - 7.5, position().y - 7.5, position().z - 7.5, position().x + 7.5, position().y + 7.5, position().z + 7.5))
