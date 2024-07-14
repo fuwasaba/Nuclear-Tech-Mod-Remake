@@ -110,12 +110,15 @@ abstract class AbstractAntiBallisticMissile : AbstractMissile {
     }
 
     private fun targetFlyingObject(): DoubleArray? {
-        // If we already have a target,and it is still valid, continue tracking it
+        // If we already have a target and it is still valid, continue tracking it
         if (currentTarget != null && currentTarget!!.isAlive && position().distanceTo(currentTarget!!.position()) <= detectRange) {
             println("Continuing to track current target: ${currentTarget!!.id}")
             val vec = Vec3(currentTarget!!.position().x - position().x, currentTarget!!.position().y - position().y, currentTarget!!.position().z - position().z).normalize()
             return doubleArrayOf(vec.x / steps, vec.y / steps, vec.z / steps)
         }
+
+        // Clear the current target if it is no longer valid
+        currentTarget = null
 
         // Targeting missiles - returns normalized vector pointing towards the closest rocket
         val targets = (level as ServerLevel).allEntities.filter {
@@ -165,4 +168,5 @@ abstract class AbstractAntiBallisticMissile : AbstractMissile {
         discard()
     }
 }
+
 
