@@ -38,7 +38,7 @@ class ReactorMk0Screen(menu: ReactorMk0Menu, playerInventory: Inventory, title: 
             menu.blockEntity.flux = value
         }
     }, {
-        _: Options, _: ProgressOption -> TextComponent("Flux amount: " + (menu.blockEntity.flux * 10.0).roundToInt().toDouble() / 10.0)
+        _: Options, _: ProgressOption -> TextComponent("中性子照射量: " + (menu.blockEntity.flux * 10.0).roundToInt().toDouble() / 10.0)
     })
     init {
         imageWidth = 176
@@ -62,7 +62,7 @@ class ReactorMk0Screen(menu: ReactorMk0Menu, playerInventory: Inventory, title: 
         RenderSystem.setShaderTexture(0, texture)
         blit(stack, guiLeft, guiTop, 0, 0, xSize, ySize)
         val reactor = menu.blockEntity
-        Minecraft.getInstance().font.draw(stack, "Heat: " + (menu.blockEntity.coreHeat * 10).roundToInt() / 10, guiLeft.toFloat() + 8, guiTop.toFloat() + 16, 0x555555)
+        Minecraft.getInstance().font.draw(stack, "炉温: " + (menu.blockEntity.coreHeat * 10).roundToInt() / 10, guiLeft.toFloat() + 8, guiTop.toFloat() + 16, 0x555555)
         renderGuiFluidTank(stack, guiLeft + 8, guiTop + 126, 16, 67, blitOffset, reactor.waterTank)
         renderGuiFluidTank(stack, guiLeft + 26, guiTop + 126, 16, 67, blitOffset, reactor.steamTank)
     }

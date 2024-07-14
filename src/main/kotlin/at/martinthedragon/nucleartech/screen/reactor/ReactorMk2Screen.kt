@@ -20,7 +20,7 @@ import net.minecraft.world.entity.player.Inventory
 import kotlin.math.roundToInt
 
 class ReactorMk2Screen(menu: ReactorMk2Menu, playerInventory: Inventory, title: Component): AbstractContainerScreen<ReactorMk2Menu>(menu, playerInventory, title) {
-    private val texture = ntm("textures/gui/reactor_mk0.png")
+    private val texture = ntm("textures/gui/reactor_mk2.png")
     private val progressOption = ProgressOption("Flux", 0.0, 100.0, 0.1f, {
         menu.blockEntity.flux
     }, {
@@ -29,7 +29,7 @@ class ReactorMk2Screen(menu: ReactorMk2Menu, playerInventory: Inventory, title: 
             menu.blockEntity.flux = value
         }
     }, {
-        _: Options, _: ProgressOption -> TextComponent("Flux amount: " + (menu.blockEntity.flux * 10.0).roundToInt().toDouble() / 10.0)
+        _: Options, _: ProgressOption -> TextComponent("中性子照射量: " + (menu.blockEntity.flux * 10.0).roundToInt().toDouble() / 10.0)
     })
     init {
         imageWidth = 176
@@ -53,16 +53,16 @@ class ReactorMk2Screen(menu: ReactorMk2Menu, playerInventory: Inventory, title: 
         RenderSystem.setShaderTexture(0, texture)
         blit(stack, guiLeft, guiTop, 0, 0, xSize, ySize)
         val reactor = menu.blockEntity
-        Minecraft.getInstance().font.draw(stack, "Heat: " + (menu.blockEntity.coreHeat * 10).roundToInt() / 10, guiLeft.toFloat() + 8, guiTop.toFloat() + 16, 0x555555)
+        Minecraft.getInstance().font.draw(stack, "炉温: " + (menu.blockEntity.coreHeat * 10).roundToInt() / 10, guiLeft.toFloat() + 8, guiTop.toFloat() + 16, 0x555555)
         renderGuiFluidTank(stack, guiLeft + 8, guiTop + 126, 16, 67, blitOffset, reactor.waterTank)
         renderGuiFluidTank(stack, guiLeft + 26, guiTop + 126, 16, 67, blitOffset, reactor.steamTank)
-        renderGuiFluidTank(stack, guiLeft + 44, guiTop + 126, 16, 67, blitOffset, reactor.coolantTank.getOrNull()!!)
+        renderGuiFluidTank(stack, guiLeft + 130, guiTop + 110, 16, 67, blitOffset, reactor.coolantTank.getOrNull()!!)
     }
 
     override fun renderTooltip(stack: PoseStack, mouseX: Int, mouseY: Int) {
         super.renderTooltip(stack, mouseX, mouseY)
         tooltipFluidTank(stack, menu.blockEntity.waterTank, 7, 59, 17, 69, mouseX, mouseY)
         tooltipFluidTank(stack, menu.blockEntity.steamTank, 25, 59, 17, 69, mouseX, mouseY)
-        tooltipFluidTank(stack, menu.blockEntity.coolantTank.getOrNull()!!, 43, 59, 17, 69, mouseX, mouseY)
+        tooltipFluidTank(stack, menu.blockEntity.coolantTank.getOrNull()!!, 130, 40, 17, 69, mouseX, mouseY)
     }
 }
