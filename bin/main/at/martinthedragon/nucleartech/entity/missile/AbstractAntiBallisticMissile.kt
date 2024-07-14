@@ -41,8 +41,12 @@ abstract class AbstractAntiBallisticMissile : AbstractMissile {
     override val renderModel = MODEL_MISSILE_RIM67B
     override val renderScale = 1f
     override val renderTexture = missileTexture("missile_rim67b")
-    
-    private val targetedEntities = mutableSetOf<Entity>()
+
+    private var currentTarget: Entity? = null
+
+    companion object {
+        val targetedEntities = mutableListOf<Entity>()
+    }
 
     constructor(entityType: EntityType<out AbstractAntiBallisticMissile>, level: Level) : super(entityType, level)
     constructor(entityType: EntityType<out AbstractAntiBallisticMissile>, level: Level, startPos: BlockPos, targetPos: BlockPos) : super(entityType, level, startPos, targetPos) {
@@ -106,25 +110,41 @@ abstract class AbstractAntiBallisticMissile : AbstractMissile {
     }
 
     private fun targetFlyingObject(): DoubleArray? {
+        // 標的ミサイルが有効で破壊されていない場合再ロックではなくロックを継続する
+        if (currentTarget != null && currentTarget!!.isAlive && position().distanceTo(currentTarget!!.position()) <= detectRange) {
+            println("Continuing to track current target: ${currentTarget!!.id}")
+            val vec = Vec3(currentTarget!!.x - this.x, currentTarget!!.y - this.y, currentTarget!!.z - this.z).normalize()
+            return doubleArrayOf(vec.x / steps, vec.y / steps, vec.z / steps)
+        }
+
+        // currentTargetで指定した標的ミサイルが無効な場合nullに書き換え再ロックを可能とする。
+        currentTarget = null
+
         // Targeting missiles - returns normalized vector pointing towards the closest rocket
         val targets = (level as ServerLevel).allEntities.filter {
-            position().distanceTo(Vec3(it.x, position().y, it.z)) <= detectRange && it !is AntiBallisticMissile && it is AbstractMissile && it !in targetedEntities
+            it !== this && // 迎撃ミサイルが自分をロックすることを防ぐ
+                it.type != this.type && // 迎撃ミサイルが他の迎撃ミサイルをロックすることを防ぐ
+                position().distanceTo(Vec3(it.x, position().y, it.z)) <= detectRange &&
+                it is AbstractMissile &&
+                !targetedEntities.contains(it)
         }
         var target: Entity? = null
         var closest: Double = detectRange * 2.0
         for (e in targets) {
-            val dis = sqrt((e.position().x - position().x).pow(2.0) + (e.position().y - position().y).pow(2.0) + (e.position().z - position().z).pow(2.0))
+            val dis = sqrt((e.x - this.x).pow(2.0) + (e.y - this.y).pow(2.0) + (e.z - this.z).pow(2.0))
             if (dis < closest) {
                 closest = dis
                 target = e
             }
         }
         if (target != null) {
-            targetedEntities.add(target)
-            var vec = Vec3(target.position().x - position().x, target.position().y - position().y, target.position().z - position().z)
-            vec = vec.normalize()
+            currentTarget = target
+            targetedEntities.add(currentTarget!!)
+            println("New target acquired: ${currentTarget!!.id}")
+            val vec = Vec3(target.x - this.x, target.y - this.y, target.z - this.z).normalize()
             return doubleArrayOf(vec.x / steps, vec.y / steps, vec.z / steps)
         }
+        println("No target found")
         return null
     }
 
@@ -134,6 +154,7 @@ abstract class AbstractAntiBallisticMissile : AbstractMissile {
         for (e in listOfMissilesInExplosionRange) {
             if (isTarget(e)) {
                 e.hurt(DamageSources.shrapnel, 40f)
+                targetedEntities.remove(e)
                 hasHits = true
             }
         }
@@ -151,3 +172,5 @@ abstract class AbstractAntiBallisticMissile : AbstractMissile {
         discard()
     }
 }
+
+

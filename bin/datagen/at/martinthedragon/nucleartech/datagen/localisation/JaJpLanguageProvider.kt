@@ -1114,7 +1114,7 @@ class JaJpLanguageProvider(dataGenerator: DataGenerator) : NuclearLanguageProvid
         add(LangKeys.RBMK_NAME_PELLET_FLASHLEAD, "Antihydrogen confined by a Magnetized Gold-198 and Lead-209 Lattice")
         add(LangKeys.RBMK_NAME_PELLET_HEA241, "高濃縮アメリシウム241")
         add(LangKeys.RBMK_NAME_PELLET_HEA242, "高濃縮アメリシウム242")
-        add(LangKeys.RBMK_NAME_PELLET_HEAUS, "高濃縮オーストラリウム (アイライト)")
+        add(LangKeys.RBMK_NAME_PELLET_HEAUS, "高濃縮オーストラリウム(Ayerite)")
         add(LangKeys.RBMK_NAME_PELLET_HEN, "高濃縮ネプツニウム237")
         add(LangKeys.RBMK_NAME_PELLET_HEP239, "高濃縮プルトニウム239")
         add(LangKeys.RBMK_NAME_PELLET_HEP241, "高濃縮プルトニウム241")
@@ -1122,7 +1122,7 @@ class JaJpLanguageProvider(dataGenerator: DataGenerator) : NuclearLanguageProvid
         add(LangKeys.RBMK_NAME_PELLET_HEU233, "高濃縮ウラン233")
         add(LangKeys.RBMK_NAME_PELLET_HEU235, "高濃縮ウラン235")
         add(LangKeys.RBMK_NAME_PELLET_LEA, "低濃縮アメリシウム242")
-        add(LangKeys.RBMK_NAME_PELLET_LEAUS, "低濃縮オーストラリウム(タスマナイト)")
+        add(LangKeys.RBMK_NAME_PELLET_LEAUS, "低濃縮オーストラリウム(Tasmanite)")
         add(LangKeys.RBMK_NAME_PELLET_LEP, "低濃縮プルトニウム239")
         add(LangKeys.RBMK_NAME_PELLET_LES, "低濃縮シュラビジウム326")
         add(LangKeys.RBMK_NAME_PELLET_MEA, "中濃縮アメリシウム242")
@@ -1151,10 +1151,10 @@ class JaJpLanguageProvider(dataGenerator: DataGenerator) : NuclearLanguageProvid
         add(LangKeys.RBMK_PELLET_RECYCLE, "Pellet for recycling")
         add(LangKeys.RBMK_ROD_DEPLETION, "劣化: %.3f%%")
         add(LangKeys.RBMK_ROD_DIFFUSION, "Diffusion: %s")
-        add(LangKeys.RBMK_ROD_FLUX_FUNC, "Flux function: %s")
-        add(LangKeys.RBMK_ROD_FUNC_TYPE, "Function type: %s")
+        add(LangKeys.RBMK_ROD_FLUX_FUNC, "中性子関数: %s")
+        add(LangKeys.RBMK_ROD_FUNC_TYPE, "熱関数種: %s")
         add(LangKeys.RBMK_ROD_HEAT, "Heat per flux: %s")
-        add(LangKeys.RBMK_ROD_HEAT_CORE, "核温度: %.1f°C")
+        add(LangKeys.RBMK_ROD_HEAT_CORE, "中心温度: %.1f°C")
         add(LangKeys.RBMK_ROD_HEAT_HULL, "表面温度: %.1f°C")
         add(LangKeys.RBMK_ROD_HEAT_HULL_TO_MELTING_POINT, "Skin temp: %.1f°C / %.1f°C")
         add(LangKeys.RBMK_ROD_MELTING_POINT, "融点: %s")
@@ -1179,7 +1179,7 @@ class JaJpLanguageProvider(dataGenerator: DataGenerator) : NuclearLanguageProvid
         add(LangKeys.SIREN_TRACK_LOOP, "タイプ:ループ再生")
         add(LangKeys.SIREN_TRACK_ONCE, "タイプ:単発再生")
         add(LangKeys.SIREN_TRACK_RANGE, "範囲: %s m")
-        add(LangKeys.SIREN_TRACK_SIREN_TRACK, "サイレンのテープ")
+        add(LangKeys.SIREN_TRACK_SIREN_TRACK, "サイレン用テープ")
 
         add(LangKeys.SUBTITLE_ANVIL_FALL, "Anvil clashes")
         add(LangKeys.SUBTITLE_ASSEMBLER_OPERATE, "Assembler whirs")
@@ -1277,11 +1277,11 @@ class JaJpLanguageProvider(dataGenerator: DataGenerator) : NuclearLanguageProvid
         addMaterial(boron, "ホウ素")
         addMaterial(cobalt, "コバルト")
         addMaterial(cobalt60, "コバルト60")
-        addMaterial(combineSteel, "CMB合金")
+        addMaterial(combineSteel, "CMB鋼")
         addMaterial(daffergon, "ダファーゴン")
         addMaterial(desh, "デッシュ")
         addMaterial(dineutronium, "ダイニュートロニウム")
-        addMaterial(electronium, "エレクトロニウム")
+        addMaterial(electronium, "エレクトロ二ウム")
         addMaterial(euphemium, "ユーフェミウム")
         addMaterial(ferricSchrabidate, "シュラビジウム化鉄")
         addMaterial(fiberglass, "ファイバーグラス")
@@ -1302,8 +1302,8 @@ class JaJpLanguageProvider(dataGenerator: DataGenerator) : NuclearLanguageProvid
         addMaterial(moxFuel, "MOX燃料")
         addMaterial(naturalPlutonium, "プルトニウム")
         addMaterial(naturalUranium, "ウラン")
-        addMaterial(neptunium, "ネプツニウム")
-        addMaterial(neptuniumFuel, "ネプツニウム燃料")
+        addMaterial(neptunium, "ネプツ二ウム")
+        addMaterial(neptuniumFuel, "ネプツ二ウム燃料")
         addMaterial(niobium, "ニオブ")
         addMaterial(niter, "硝石")
         addMaterial(nuclearWaste, "Nuclear Waste")
@@ -1328,7 +1328,7 @@ class JaJpLanguageProvider(dataGenerator: DataGenerator) : NuclearLanguageProvid
         addMaterial(schraranium, "シュララニウム")
         addMaterial(solinium, "ソリニウム")
         addMaterial(starmetal, "スターメタル")
-        addMaterial(steel, "鋼")
+        addMaterial(steel, "鋼鉄")
         addMaterial(strontium90, "ストロンチウム90")
         addMaterial(sulfur, "硫黄")
         addMaterial(tantalium, "タンタル")
@@ -1357,7 +1357,7 @@ class JaJpLanguageProvider(dataGenerator: DataGenerator) : NuclearLanguageProvid
     override val blockFormat = "%sブロック"
     override val rawFormat = "%sの原石"
     override val ingotFormat = "%sインゴット"
-    override val billetFormat = "%sペレット"
+    override val billetFormat = "%sビレット"
     override val nuggetFormat = "%sの塊"
     override val crystalsFormat = "%sクリスタル"
     override val powderFormat = "%sの粉"
