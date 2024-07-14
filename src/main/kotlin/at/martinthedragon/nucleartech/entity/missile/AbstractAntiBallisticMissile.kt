@@ -110,20 +110,20 @@ abstract class AbstractAntiBallisticMissile : AbstractMissile {
     }
 
     private fun targetFlyingObject(): DoubleArray? {
-        // If we already have a target and it is still valid, continue tracking it
+        // 標的ミサイルが有効で破壊されていない場合再ロックではなくロックを継続する
         if (currentTarget != null && currentTarget!!.isAlive && position().distanceTo(currentTarget!!.position()) <= detectRange) {
             println("Continuing to track current target: ${currentTarget!!.id}")
             val vec = Vec3(currentTarget!!.x - this.x, currentTarget!!.y - this.y, currentTarget!!.z - this.z).normalize()
             return doubleArrayOf(vec.x / steps, vec.y / steps, vec.z / steps)
         }
 
-        // Clear the current target if it is no longer valid
+        // currentTargetで指定した標的ミサイルが無効な場合nullに書き換え再ロックを可能とする。
         currentTarget = null
 
         // Targeting missiles - returns normalized vector pointing towards the closest rocket
         val targets = (level as ServerLevel).allEntities.filter {
-            it !== this && // Ensure the missile does not target itself
-                it.type != this.type && // Exclude other anti-ballistic missiles
+            it !== this && // 迎撃ミサイルが自分をロックすることを防ぐ
+                it.type != this.type && // 迎撃ミサイルが他の迎撃ミサイルをロックすることを防ぐ
                 position().distanceTo(Vec3(it.x, position().y, it.z)) <= detectRange &&
                 it is AbstractMissile &&
                 !targetedEntities.contains(it)
@@ -154,7 +154,7 @@ abstract class AbstractAntiBallisticMissile : AbstractMissile {
         for (e in listOfMissilesInExplosionRange) {
             if (isTarget(e)) {
                 e.hurt(DamageSources.shrapnel, 40f)
-                targetedEntities.remove(e) // Remove from targeted list upon hit
+                targetedEntities.remove(e)
                 hasHits = true
             }
         }
