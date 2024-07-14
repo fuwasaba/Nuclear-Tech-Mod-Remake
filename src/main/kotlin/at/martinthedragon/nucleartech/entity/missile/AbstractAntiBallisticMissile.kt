@@ -122,12 +122,16 @@ abstract class AbstractAntiBallisticMissile : AbstractMissile {
 
         // Targeting missiles - returns normalized vector pointing towards the closest rocket
         val targets = (level as ServerLevel).allEntities.filter {
-            position().distanceTo(Vec3(it.x, position().y, it.z)) <= detectRange && it !is AntiBallisticMissile && it is AbstractMissile && !targetedEntities.contains(it)
+            it !== this && // Ensure the missile does not target itself
+                position().distanceTo(Vec3(it.x, position().y, it.z)) <= detectRange &&
+                it !is AntiBallisticMissile &&
+                it is AbstractMissile &&
+                !targetedEntities.contains(it)
         }
         var target: Entity? = null
         var closest: Double = detectRange * 2.0
         for (e in targets) {
-            val dis = sqrt((e.position().x - position().x).pow(2.0) + (e.position().y - position().y).pow(2.0) + (e.position().z - position().z).pow(2.0))
+            val dis = sqrt((e.position().x - position().x).pow(2.0) + (e.position().y - position().y).pow(2.0) + (e.position().z - position()..z).pow(2.0))
             if (dis < closest) {
                 closest = dis
                 target = e
