@@ -44,6 +44,10 @@ abstract class AbstractAntiBallisticMissile : AbstractMissile {
 
     private var currentTarget: Entity? = null
 
+    companion object {
+        val targetedEntities = mutableListOf<Entity>()
+    }
+
     constructor(entityType: EntityType<out AbstractAntiBallisticMissile>, level: Level) : super(entityType, level)
     constructor(entityType: EntityType<out AbstractAntiBallisticMissile>, level: Level, startPos: BlockPos, targetPos: BlockPos) : super(entityType, level, startPos, targetPos) {
         isEntityTick = true
@@ -106,15 +110,16 @@ abstract class AbstractAntiBallisticMissile : AbstractMissile {
     }
 
     private fun targetFlyingObject(): DoubleArray? {
-        // If we already have a target and it is still valid, continue tracking it
+        // If we already have a target,and it is still valid, continue tracking it
         if (currentTarget != null && currentTarget!!.isAlive && position().distanceTo(currentTarget!!.position()) <= detectRange) {
+            println("Continuing to track current target: ${currentTarget!!.id}")
             val vec = Vec3(currentTarget!!.position().x - position().x, currentTarget!!.position().y - position().y, currentTarget!!.position().z - position().z).normalize()
             return doubleArrayOf(vec.x / steps, vec.y / steps, vec.z / steps)
         }
 
         // Targeting missiles - returns normalized vector pointing towards the closest rocket
         val targets = (level as ServerLevel).allEntities.filter {
-            position().distanceTo(Vec3(it.x, position().y, it.z)) <= detectRange && it !is AntiBallisticMissile && it is AbstractMissile
+            position().distanceTo(Vec3(it.x, position().y, it.z)) <= detectRange && it !is AntiBallisticMissile && it is AbstractMissile && !targetedEntities.contains(it)
         }
         var target: Entity? = null
         var closest: Double = detectRange * 2.0
@@ -127,9 +132,12 @@ abstract class AbstractAntiBallisticMissile : AbstractMissile {
         }
         if (target != null) {
             currentTarget = target
+            targetedEntities.add(currentTarget!!)
+            println("New target acquired: ${currentTarget!!.id}")
             val vec = Vec3(target.position().x - position().x, target.position().y - position().y, target.position().z - position().z).normalize()
             return doubleArrayOf(vec.x / steps, vec.y / steps, vec.z / steps)
         }
+        println("No target found")
         return null
     }
 
@@ -139,6 +147,7 @@ abstract class AbstractAntiBallisticMissile : AbstractMissile {
         for (e in listOfMissilesInExplosionRange) {
             if (isTarget(e)) {
                 e.hurt(DamageSources.shrapnel, 40f)
+                targetedEntities.remove(e) // Remove from targeted list upon hit
                 hasHits = true
             }
         }
@@ -156,3 +165,4 @@ abstract class AbstractAntiBallisticMissile : AbstractMissile {
         discard()
     }
 }
+
