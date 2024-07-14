@@ -27,7 +27,6 @@ import net.minecraft.world.phys.Vec3
 import kotlin.math.pow
 import kotlin.math.sqrt
 
-
 abstract class AbstractAntiBallisticMissile : AbstractMissile {
     protected open val detectRange = 2000
     protected open val distanceRange = 1000
@@ -42,11 +41,16 @@ abstract class AbstractAntiBallisticMissile : AbstractMissile {
     override val renderModel = MODEL_MISSILE_RIM67B
     override val renderScale = 1f
     override val renderTexture = missileTexture("missile_rim67b")
+
+    private var currentTarget: Entity? = null
+
     constructor(entityType: EntityType<out AbstractAntiBallisticMissile>, level: Level) : super(entityType, level)
     constructor(entityType: EntityType<out AbstractAntiBallisticMissile>, level: Level, startPos: BlockPos, targetPos: BlockPos) : super(entityType, level, startPos, targetPos) {
         isEntityTick = true
     }
+
     protected abstract fun getAcceleration(velocity: Double): Double
+
     override fun tick() {
         val oldPosY: Double = position().y
         super.tick()
@@ -102,7 +106,13 @@ abstract class AbstractAntiBallisticMissile : AbstractMissile {
     }
 
     private fun targetFlyingObject(): DoubleArray? {
-        //Targeting missiles - returns normalized vector pointing towards the closest rocket
+        // If we already have a target and it is still valid, continue tracking it
+        if (currentTarget != null && currentTarget!!.isAlive && position().distanceTo(currentTarget!!.position()) <= detectRange) {
+            val vec = Vec3(currentTarget!!.position().x - position().x, currentTarget!!.position().y - position().y, currentTarget!!.position().z - position().z).normalize()
+            return doubleArrayOf(vec.x / steps, vec.y / steps, vec.z / steps)
+        }
+
+        // Targeting missiles - returns normalized vector pointing towards the closest rocket
         val targets = (level as ServerLevel).allEntities.filter {
             position().distanceTo(Vec3(it.x, position().y, it.z)) <= detectRange && it !is AntiBallisticMissile && it is AbstractMissile
         }
@@ -116,12 +126,13 @@ abstract class AbstractAntiBallisticMissile : AbstractMissile {
             }
         }
         if (target != null) {
-            var vec = Vec3(target.position().x - position().x, target.position().y - position().y, target.position().z - position().z)
-            vec = vec.normalize()
+            currentTarget = target
+            val vec = Vec3(target.position().x - position().x, target.position().y - position().y, target.position().z - position().z).normalize()
             return doubleArrayOf(vec.x / steps, vec.y / steps, vec.z / steps)
         }
         return null
     }
+
     private fun explodeIfNearTarget() {
         val listOfMissilesInExplosionRange: List<Entity> = level.getEntities(null, AABB(position().x - 7.5, position().y - 7.5, position().z - 7.5, position().x + 7.5, position().y + 7.5, position().z + 7.5))
         var hasHits = false
@@ -137,7 +148,9 @@ abstract class AbstractAntiBallisticMissile : AbstractMissile {
             return
         }
     }
+
     protected open fun isTarget(e: Entity): Boolean = e !is AbstractAntiBallisticMissile && (e is AbstractMissile || e is EnderDragon || e is Ghast || e is WitherBoss)
+
     override fun onImpact() {
         killMissile()
         discard()
