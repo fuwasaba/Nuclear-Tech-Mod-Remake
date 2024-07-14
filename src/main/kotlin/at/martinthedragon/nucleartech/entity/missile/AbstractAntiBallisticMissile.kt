@@ -113,7 +113,7 @@ abstract class AbstractAntiBallisticMissile : AbstractMissile {
         // If we already have a target and it is still valid, continue tracking it
         if (currentTarget != null && currentTarget!!.isAlive && position().distanceTo(currentTarget!!.position()) <= detectRange) {
             println("Continuing to track current target: ${currentTarget!!.id}")
-            val vec = Vec3(currentTarget!!.position().x - position().x, currentTarget!!.position().y - position().y, currentTarget!!.position().z - position().z).normalize()
+            val vec = Vec3(currentTarget!!.x - this.x, currentTarget!!.y - this.y, currentTarget!!.z - this.z).normalize()
             return doubleArrayOf(vec.x / steps, vec.y / steps, vec.z / steps)
         }
 
@@ -131,7 +131,7 @@ abstract class AbstractAntiBallisticMissile : AbstractMissile {
         var target: Entity? = null
         var closest: Double = detectRange * 2.0
         for (e in targets) {
-            val dis = sqrt((e.position().x - position().x).pow(2.0) + (e.position().y - position().y).pow(2.0) + (e.position().z - position()..z).pow(2.0))
+            val dis = sqrt((e.x - this.x).pow(2.0) + (e.y - this.y).pow(2.0) + (e.z - this.z).pow(2.0))
             if (dis < closest) {
                 closest = dis
                 target = e
@@ -141,12 +141,13 @@ abstract class AbstractAntiBallisticMissile : AbstractMissile {
             currentTarget = target
             targetedEntities.add(currentTarget!!)
             println("New target acquired: ${currentTarget!!.id}")
-            val vec = Vec3(target.position().x - position().x, target.position().y - position().y, target.position().z - position().z).normalize()
+            val vec = Vec3(target.x - this.x, target.y - this.y, target.z - this.z).normalize()
             return doubleArrayOf(vec.x / steps, vec.y / steps, vec.z / steps)
         }
         println("No target found")
         return null
     }
+
 
     private fun explodeIfNearTarget() {
         val listOfMissilesInExplosionRange: List<Entity> = level.getEntities(null, AABB(position().x - 7.5, position().y - 7.5, position().z - 7.5, position().x + 7.5, position().y + 7.5, position().z + 7.5))
